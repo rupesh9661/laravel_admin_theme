@@ -7,28 +7,28 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'M4Cart || Admin') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('theme/assets/js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('theme/assets/css/app.css') }}" rel="stylesheet">
 
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: #4c82a8;">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color:darkslateblue;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{-- {{ config('app.name', 'Laravel') }} --}}
                     <a href="/" class="grv_imp">
-                            <img class="img-fluid" src="{{ asset('images/logo-light.png') }}" style="margin-top: -24px;">
-                            <img class="img-fluid" src="{{ asset('images/logo.png') }}" alt="Theme-Logo" style="width: 35%;">
+                            <img class="img-fluid" src="{{ asset('images/logo.png') }}" style="height:70px">
+                           
                         </a>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

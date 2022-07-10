@@ -43,7 +43,7 @@
             padding: 6px 12px;
             margin-left: -1px;
             line-height: 1.42857143;
-            color: #337ab7;
+            color: darkslateblue;
             text-decoration: none;
             background-color: #fff;
             border: 1px solid #ddd;
@@ -58,8 +58,8 @@
             z-index: 2;
             color: #fff;
             cursor: default;
-            background-color: #337ab7;
-            border-color: #337ab7;
+            background-color: darkslateblue;
+            border-color: darkslateblue;
         }
 
         .pagination>.disabled>a,
@@ -96,7 +96,7 @@
                             <div class="buttons" style="text-align:right;margin:4px;">
 
                                 <a href="{{ url('Module/create') }}"><button type="button"
-                                        class="btn btn-success btn_new"><i class="fas fa-plus mr-2"></i>Add New</button></a>
+                                        class="btn btn-primary btn_new"><i class="fas fa-plus mr-2"></i>Add New</button></a>
                             </div>
                         </div>
                     </div>
@@ -117,11 +117,11 @@
                             </div>
 
                             <table id="table" data-toggle="table" data-search="true" data-filter-control="true"
-                                data-show-export="true" data-show-refresh="true" data-show-toggle="true"
+                                data-show-export="true" 
                                 data-pagination="true" data-toolbar="#toolbar">
                                 <thead>
                                     <tr>
-                                        <th data-field="state" data-checkbox="true"></th>
+                                        
                                         <th data-field="date12" data-sortable="true">Id</th>
                                         <th data-field="date" data-sortable="true">Module Name</th>
                                         <th data-field="dateee" data-sortable="true">Parent Module</th>
@@ -134,18 +134,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @php
-                                        $sr = 1;
-                                    @endphp
-                                    @foreach ($all_modules as $module)
+                                   
+                                    @foreach ($all_modules as $key=>$module)
                                         <?php
                                         $encrypt_id = enCrypt($module->id);
                                         
                                         ?>
                                         <tr>
-                                            <td class="bs-checkbox "><input data-index="0" name="btSelectItem"
-                                                    type="checkbox"></td>
-                                            <td>{{ $sr }}</td>
+                                           
+                                         
+                                            <td>{{ $module->id }}</td>
                                             <td>{{ $module->module_name }}</td>
                                             <td>{{ $module->parent ? $module->parent->module_name : '-' }}</td>
 
@@ -184,9 +182,7 @@
                                                 </span></td>
 
                                         </tr>
-                                        @php
-                                            $sr++;
-                                        @endphp
+                                      
                                     @endforeach
                                 </tbody>
                             </table>

@@ -43,7 +43,7 @@
             padding: 6px 12px;
             margin-left: -1px;
             line-height: 1.42857143;
-            color: #337ab7;
+            color: darkslateblue;
             text-decoration: none;
             background-color: #fff;
             border: 1px solid #ddd;
@@ -58,8 +58,8 @@
             z-index: 2;
             color: #fff;
             cursor: default;
-            background-color: #337ab7;
-            border-color: #337ab7;
+            background-color: darkslateblue;
+            border-color: darkslateblue;
         }
 
         .pagination>.disabled>a,
@@ -96,7 +96,7 @@
                             <div class="buttons" style="text-align:right;margin:4px;">
 
                                 <a href="{{ url('DesignationModule/create') }}"><button type="button"
-                                        class="btn btn-success btn_new">Add / update </button></a>
+                                        class="btn btn-primary btn_new">Add / update </button></a>
                             </div>
                         </div>
                     </div>
@@ -121,7 +121,7 @@
                                 data-pagination="true" data-toolbar="#toolbar">
                                 <thead>
                                     <tr>
-                                        <th data-field="state" data-checkbox="true"></th>
+                                       
                                         <th data-field="date12" data-sortable="true">S.No.</th>
                                         <th data-field="date" data-sortable="true">Designation</th>
                                         <th data-field="dateee" data-sortable="true">Module Name</th>
@@ -145,8 +145,7 @@
                                         
                                         ?>
                                         <tr>
-                                            <td class="bs-checkbox "><input data-index="0" name="btSelectItem"
-                                                    type="checkbox"></td>
+                                           
                                             <td>{{ $sr }}</td>
 
                                             <td>{{ $module->designation ? $module->designation->name : '-' }}</td>

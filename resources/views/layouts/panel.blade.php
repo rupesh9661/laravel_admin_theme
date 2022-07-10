@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Synergy | Manacle Technologies Pvt. Lmt.</title>
+    <title>M4Cart || Admin Panel</title>
 
     @yield('title')
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -16,54 +16,33 @@
         content="bootstrap, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive">
     <meta name="author" content="colorlib">
     <!-- Favicon icon -->
-    <link rel='stylesheet'
-        href='https://rawgit.com/vitalets/x-editable/master/dist/bootstrap3-editable/css/bootstrap-editable.css'>
-    <link rel='stylesheet' href="{{ asset('assets/css/bootstrap-table.min.css') }}">
-    <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon" style="width: 10px;">
-    <!-- Google font-->
-    <!-- <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'> -->
-    <link rel="stylesheet" type="text/css"
-        href="{{ asset('theme/bower_components/bootstrap/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('theme/assets/css/bootstrap-select.min.css') }}">
-    <!--<link rel="stylesheet" href="{{ asset('theme/assets/css/fstdropdown.css') }}">-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('theme/assets/css/bootstrap.min.css') }}">
+    <link rel='stylesheet' href="{{ asset('theme/assets/css/bootstrap-table.min.css') }}">
 
-    <!-- waves.css')}} -->
-    <link rel="stylesheet" href="{{ asset('theme/assets/pages/waves/css/waves.min.css') }}" type="text/css"
-        media="all">
+    <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon" style="width: 10px;">
     <!-- feather icon -->
     <link rel="stylesheet" type="text/css" href="{{ asset('theme/assets/icon/feather/css/feather.css') }}">
     <!-- themify-icons line icon -->
     <link rel="stylesheet" type="text/css" href="{{ asset('theme/assets/icon/themify-icons/themify-icons.css') }}">
     <!-- ico font -->
     <link rel="stylesheet" type="text/css" href="{{ asset('theme/assets/icon/icofont/css/icofont.css') }}">
+    <link rel='stylesheet' href="{{ asset('theme/assets/css/font-awesome.min.css') }}">
+    <!-- waves.css')}} -->
+    <link rel="stylesheet" href="{{ asset('theme/assets/css/waves.min.css') }}" type="text/css" media="all">
     <!-- Font Awesome -->
-    <link rel="stylesheet" type="text/css"
-        href="{{ asset('theme/assets/icon/font-awesome/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
     <!-- Style.css')}} -->
     <link rel="stylesheet" type="text/css" href="{{ asset('theme/assets/css/style.css') }}">
-    <!--       <link rel="stylesheet" type="text/css" href="{{ asset('theme/assets/css/style1.css') }}"> -->
     <link rel="stylesheet" type="text/css" href="{{ asset('theme/assets/css/pages.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('theme/assets/css/widget.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('theme/assets/css/grv.css') }}">
-
     <link rel="stylesheet" href="{{ asset('theme/assets/css/dropdown_search.css') }}">
-
-
     <link rel="stylesheet" href="{{ asset('theme/assets/css/chosen.min.css') }}">
-    {{-- <link rel="stylesheet" href="{{ asset('theme/assets/css/jquery-ui.theme.min.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('theme/assets/css/jquery-ui.min.css') }}">
-
-    {{-- <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet"> --}}
-
     <link rel="stylesheet" href="{{ asset('theme/assets/css/sweet_alert.min.css') }}">
-
     <link rel="stylesheet" href="{{ asset('theme/assets/css/select2.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('msell/css/bootstrap-datepicker3.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('msell/css/bootstrap-datetimepicker.min.css') }}">
     <link rel="stylesheet" href="{{ asset('theme/assets/css/light_ness.min.css') }}">
-    <script src="{{ asset('theme/assets/js/ace-extra.min.js') }}"></script>
 
     <script>
         if (location.hostname == "localhost") {
@@ -103,7 +82,7 @@
             width: 40px;
             height: 40px;
             border: 4px #ddd solid;
-            border-top: 4px #2e93e6 solid;
+            border-top: 4px darkslateblue solid;
             border-radius: 50%;
             animation: sp-anime 0.8s infinite linear;
         }
@@ -305,19 +284,19 @@
         #select2-state-container:focus {
             color: #495057;
             background-color: #fff;
-            border-color: #80bdff;
+            border-color: darkslateblue
             outline: 0;
             box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25);
-            border: 1px solid #4099ff;
+            border: 1px solid darkslateblue
         }
 
         .select2.select2-container.select2-container--default.select2-container--below.select2-container--open:focus {
             color: #495057;
             background-color: #fff;
-            border-color: #80bdff;
+            border-color: darkslateblue
             outline: 0;
             box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25);
-            border: 1px solid #4099ff;
+            border: 1px solid darkslateblue
         }
 
         #constitution_chosen {
@@ -353,7 +332,7 @@
             width: 40px;
             height: 40px;
             border: 4px #ddd solid;
-            border-top: 4px #2e93e6 solid;
+            border-top: 4px darkslateblue solid;
             border-radius: 50%;
             animation: sp-anime 0.8s infinite linear;
         }
@@ -368,8 +347,6 @@
             position: unset;
             width: auto;
         }
-
-      
     </style>
 
 
@@ -432,38 +409,6 @@
     {{-- @endif --}}
 
 
-    {{-- confirmation modal for regenrate button --}}
-
-    <button type="button" data-toggle="modal" data-target="#confirmationModal1" id="confirmationmodalbtn1"
-        style="display: none">confirmation modal</button>
-
-    <div class="modal fade" id="confirmationModal1" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-
-            <div class="modal-content">
-                <div class="modal-header">
-                </div>
-                <div class="modal-body text-center">
-                    <i class="fa fa-exclamation-triangle fa-10x"></i>
-                    <h2 style="font-weight: bold;color: black;font-size: 35px;margin-top: 15px;">Are you
-                        sure?</h2>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal"
-                        style="margin-top: 9px; margin-left: 90px;"> No,cancel!</button>
-                    <form action="" method="" id="confirmationModalForm1" class="blockuie dropdown-item">
-                        @csrf
-                        {{-- @method('delete') --}}
-
-                        <button type="submit" class="btn btn-success" style="margin-top:11px">Yes, I am
-                            Sure!</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
 
@@ -507,15 +452,19 @@
             <!-- [ Header ] start -->
             <nav class="navbar header-navbar pcoded-header" style="background: darkslateblue !important;">
                 <div class="navbar-wrapper">
-                    <div class="navbar-logo" style="padding-top: 25px;">
+                    <div class="navbar-logo" >
                         <a href="/" class="grv_imp">
-                            <img class="img-fluid" src="{{ asset('images/logo-light.png') }}"
-                                style="margin-top: -24px;width: 56px;">
-                            <img class="img-fluid" src="{{ asset('images/logo.png') }}" alt="Theme-Logo"
-                                style="width: 70%;">
+                            <img class="img-fluid" src="{{ asset('images/logo.png') }}"
+                                style="margin-top: -7.5%;width: 30%;">
                         </a>
-                    
-                    
+                        <a class="mobile-menu" id="mobile-collapse" href="#!">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                        <a class="mobile-options waves-effect waves-light">
+                            <i class="feather icon-more-horizontal"></i>
+                        </a>
+
+
                     </div>
                     <div class="navbar-container container-fluid">
                         <ul class="nav-left">
@@ -538,12 +487,12 @@
                                     <i class="full-screen feather icon-maximize"></i>
                                 </a>
                             </li>
-                            {{-- <li class="hide__a" style="margin-top:-12px">
+                            <li class="hide__a" style="margin-top:-12px">
                                 <label class="switch">
                                     <input id="mobile_grv" type="checkbox" hidden checked>
                                     <span class="slider round"></span>
                                 </label>
-                            </li> --}}
+                            </li>
                         </ul>
                         <ul class="nav-right">
 
@@ -551,7 +500,7 @@
                             <li class="header-notification" style="margin-top: -7px">
                                 <div class="dropdown-primary dropdown">
                                     <div class="dropdown-toggle" data-toggle="dropdown">
-                                        <i class="feather icon-bell"></i>
+                                        <i class="fa fa-bell text-light"></i>
 
 
                                         <span class="badge bg-c-red">
@@ -561,8 +510,7 @@
                                         </span>
 
 
-{{-- 
-                                        <span class="badge bg-secondary text-light">
+                                        {{-- <span class="badge bg-secondary text-light">
 
                                             0
 
@@ -597,8 +545,7 @@
                             <li class="user-profile header-notification" style="margin-top: -6px;">
                                 <div class="dropdown-primary dropdown">
                                     <div class="dropdown-toggle" data-toggle="dropdown">
-                                        <img src="{{ asset('theme/assets/images/avatar-4.jpg') }}" class="img-radius"
-                                            alt="User-Profile-Image">
+                                        <i class="fa fa-user"></i>
                                         <span>{{ Auth::user()->name }}</span>
                                         <i class="feather icon-chevron-down"></i>
                                     </div>
@@ -607,13 +554,20 @@
 
                                         <li>
                                             <a href="#">
-                                                <i class="feather icon-user"></i> Profile
+                                                <i class="fa fa-user"></i> Profile
                                             </a>
                                         </li>
 
+
                                         <li>
-                                            <a href="auth-lock-screen.html">
-                                                <i class="feather icon-lock"></i> Lock Screen
+                                            <a onclick="sidebarFunction()">
+                                                <i class="fa fa-lock"></i> Side Bar Layout
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a onclick="upperbarFunction()">
+                                                <i class="fa fa-lock"></i> Upper Bar Layout
+
                                             </a>
                                         </li>
 
@@ -646,7 +600,7 @@
                             <br>
                             <br>
 
-                            <div class="alert alert-success alert-dismissable col-md-12" style="">
+                            <div class="alert alert-success alert-dismissable col-md-12">
                                 <h5> {{ session()->get('message') }}
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true" class="fs-3">&times;</span>
@@ -680,18 +634,17 @@
     ?>
 
 
-    <script src="{{ asset('theme/bower_components/jquery/js/jquery.min.js') }}"></script>
-    <!--<script src="{{ asset('theme/bower_components/jquery-ui/js/jquery-ui.min.js') }}"></script>-->
-    <script src="{{ asset('theme/bower_components/popper.js/js/popper.min.js') }}"></script>
-    <script src="{{ asset('theme/bower_components/bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('theme/assets/pages/waves/js/waves.min.js') }}"></script>
-    <script src="{{ asset('theme/bower_components/jquery-slimscroll/js/jquery.slimscroll.js') }}"></script>
-    <script src="{{ asset('theme/bower_components/Sortable/js/Sortable.js') }}"></script>
-    <script src="{{ asset('theme/assets/pages/sortable-custom.js') }}"></script>
-    <script src="{{ asset('theme/bower_components/modernizr/js/modernizr.js') }}"></script>
-    <script src="{{ asset('theme/bower_components/modernizr/js/css-scrollbars.js') }}"></script>
+    <script src="{{ asset('theme/assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('theme/assets/js/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('theme/assets/js/popper.min.js') }}"></script>
+    <script src="{{ asset('theme/assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('theme/assets/js/waves.min.js') }}"></script>
+    <script src="{{ asset('theme/assets/js/jquery.slimscroll.js') }}"></script>
+    <script src="{{ asset('theme/assets/js/Sortable.js') }}"></script>
+    <script src="{{ asset('theme/assets/js/sortable-custom.js') }}"></script>
+    <script src="{{ asset('theme/assets/js/modernizr.js') }}"></script>
+    <script src="{{ asset('theme/assets/js/css-scrollbars.js') }}"></script>
     <script src="{{ asset('theme/assets/js/pcoded.min.js') }}"></script>
-    <!--<script src="{{ asset('theme/assets/js/fstdropdown.js') }}"></script>-->
     <script src="{{ asset('theme/assets/js/dropdown_search.min.js') }}"></script>
     <script src="{{ asset('theme/assets/js/jquery-ui.min.js') }}"></script>
     <script src="{{ asset('theme/assets/js/chosen.jquery.min.js') }}"></script>
@@ -722,6 +675,44 @@
         });
     </script>
 
+    <script type="text/javascript">
+        function sidebarFunction() {
+            var status = 2;
+            // var user_id = 0;
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                type: "POST",
+                url: "{{ route('layout-set-auth') }}",
+                dataType: 'json',
+                data: "status=" + status,
+                success: function(data) {
+                    location.reload();
+                }
+            });
+        }
+
+        function upperbarFunction() {
+            var status = 1;
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                type: "POST",
+                url: "{{ route('layout-set-auth') }}",
+                dataType: 'json',
+                data: "status=" + status,
+                success: function(data) {
+                    location.reload();
+                }
+            });
+        }
+    </script>
     <script>
         // sweetalert code starts here
         var status = "<?php echo $sweet_alert_status; ?>";
@@ -744,8 +735,68 @@
 
         // sweetalert code ends here
     </script>
+    <?php
+ $layout_status= Auth::user()->layout_status;
+ if($layout_status == '2' ) {
+?>
+    <style type="text/css">
+        .pcoded[theme-layout="vertical"][vertical-placement="left"][vertical-nav-type="offcanvas"][vertical-effect="shrink"] .pcoded-navbar .pcoded-item>li>a .pcoded-mtext {
+            opacity: 0;
+        }
 
-   
+        .pcoded[theme-layout="vertical"][vertical-placement="left"][vertical-nav-type="offcanvas"][vertical-effect="shrink"] .pcoded-navbar .pcoded-item li.pcoded-hasmenu>a::after {
+            opacity: 0;
+        }
+
+        .pcoded-micon i {
+            margin-left: -15px;
+
+            font-size: 20px;
+        }
+
+        .pcoded-mtext {
+            margin-left: 36px !important;
+        }
+
+        .page-header.card {
+            margin: 30px 59px 15px !important;
+        }
+
+        .pcoded[theme-layout="vertical"][vertical-placement="left"][vertical-nav-type="offcanvas"][vertical-effect="shrink"] .pcoded-navbar {
+            margin-left: 0px !important;
+            width: 60px !important;
+            opacity: 1 !important;
+        }
+
+
+        .pcoded[theme-layout="vertical"][vertical-placement="left"][vertical-nav-type="offcanvas"][vertical-effect="shrink"] .pcoded-navbar {
+            width: 60px !important;
+            opacity: 1 !important;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="{{ asset('theme/assets/css/style1.css') }}">
+    <script src="{{ asset('theme/assets/js/vertical/vertical-layout.min.js') }}"></script>
+    <?php
+} 
+else if($layout_status == '1') {
+?>
+    <script src="{{ asset('theme/assets/js/vertical/menu/menu-hori-fixed.js') }}"></script>
+    <?php
+}
+else {
+?>
+
+    <?php
+}
+?>
+
+
+
+
+
+
+
+    <script src="{{ asset('theme/assets/js/ace-extra.min.js') }}"></script>
     <script src="{{ asset('theme/assets/js/drag_and_drop.js') }}"></script>
     <script src="{{ asset('theme/assets/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('theme/assets/js/script.js') }}"></script>
@@ -757,7 +808,6 @@
     <script src="{{ asset('theme/assets/js/bootstrap-select.min.js') }}"></script>
     <script src="{{ asset('theme/assets/js/state_district.js') }}"></script>
     <script src="{{ asset('theme/assets/js/select2.min.js') }}"></script>
-    <script src="{{ asset('theme/assets/js/ajaxclient_options.js') }}"></script>
     <script src="{{ asset('theme/assets/js/confirmation_alert.js') }}"></script>
 
     <script type="text/javascript">

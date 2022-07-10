@@ -43,7 +43,7 @@
             padding: 6px 12px;
             margin-left: -1px;
             line-height: 1.42857143;
-            color: #337ab7;
+            color: darkslateblue;
             text-decoration: none;
             background-color: #fff;
             border: 1px solid #ddd;
@@ -58,8 +58,8 @@
             z-index: 2;
             color: #fff;
             cursor: default;
-            background-color: #337ab7;
-            border-color: #337ab7;
+            background-color: darkslateblue;
+            border-color: darkslateblue;
         }
 
         .pagination>.disabled>a,
@@ -96,7 +96,7 @@
                             <div class="buttons" style="text-align:right;margin:4px;">
 
                                 <a href="{{ url('Designation/create') }}"><button type="button"
-                                        class="btn btn-success btn_new"><i class="fas fa-plus mr-2"></i>Add New</button></a>
+                                        class="btn btn-primary btn_new"><i class="fas fa-plus mr-2"></i>Add New</button></a>
                             </div>
                         </div>
                     </div>
@@ -149,9 +149,9 @@
 
                                         <div class="col-md-4 mb-3 px-3">
                                             <label></label>
-                                            <input style="margin-top:23px" type="submit" name="find" value="find" class="btn btn-success">
-                                            <input style="margin-top:23px" type="submit" name="export_to_excel" value="Export To Csv" class="btn btn-primary">
-                                            <input style="margin-top:23px" type="submit" name="export_to_pdf" value="Export To PDF" class="btn btn-primary">
+                                            <input style="margin-top:23px" type="submit" name="find" value="find" class="btn btn-primary">
+                                            {{-- <input style="margin-top:23px" type="submit" name="export_to_excel" value="Export To Csv" class="btn btn-primary"> --}}
+                                            {{-- <input style="margin-top:23px" type="submit" name="export_to_pdf" value="Export To PDF" class="btn btn-primary"> --}}
                                         </div>
 
                                     </div>
@@ -162,20 +162,14 @@
                             </div>
                             <hr class="border-dark bold">
                             <div id="hide_2" class="table-responsive">
-                                <!--<div id="toolbar">-->
-                                <!--  <select class="form-control">-->
-                                <!--    <option value="">Export Basic</option>-->
-                                <!--    <option value="all">Export All</option>-->
-                                <!--    <option value="selected">Export Selected</option>-->
-                                <!--  </select>-->
-                                <!--</div>-->
+                              
 
                                 <table id="table" data-toggle="table" data-search="true" data-filter-control="true"
                                     data-show-export="true" data-show-refresh="true" data-show-toggle="true"
-                                    data-pagination="true" data-toolbar="#toolbar">
+                                    data-pagination="true" >
                                     <thead>
                                         <tr>
-                                            <th data-field="state" data-checkbox="true"></th>
+                                            
                                             <th data-field="date23" data-sortable="true">Id</th>
 
                                             <th data-field="date" data-sortable="true">Designation Name</th>
@@ -192,7 +186,7 @@
                                             
                                             ?>
                                             <tr>
-                                               <td></td>
+                                               
                                                <td ><a href='{{url("designationpdf/{$encrypt_id}")}}' class="text-primary">{{$designation_details->char_id}}</a></td>
                                                 <td>{{ $designation_details->name }}</td>
 

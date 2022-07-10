@@ -54,7 +54,7 @@
                                         <div class="col-md-3 mb-3 ">
                                             <label for="bank_Name" class="yash_star" style="margin-bottom:0px;">Module
                                                 Name</label>
-                                            <input type="text" name="module_name" id="model_Name" class="form-control"
+                                            <input type="text"  name="module_name" id="model_Name" class="form-control"
                                                 required>
                                         </div>
                                         <div class="col-md-3 mb-3 ">

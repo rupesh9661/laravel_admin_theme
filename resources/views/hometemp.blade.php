@@ -11,7 +11,7 @@
         <div class="row align-items-end">
             <div class="col-lg-8">
                 <div class="page-header-title">
-                    <i class="feather icon-home bg-c-blue"></i>
+                    <i class="feather icon-home " style="background: darkslateblue"></i>
                     <div class="d-inline">
                        
                     </div>

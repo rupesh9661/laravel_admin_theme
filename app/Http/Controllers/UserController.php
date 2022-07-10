@@ -132,13 +132,8 @@ class UserController extends Controller
         ]);
         return redirect('Users')->with('success','Deleted Successfully');
     }
-    // public function getpdf($id){
-    //     // dd($id);
-    //     $decrypt_id= Crypt::deCrypt($id);
-    //     $client_type= DB::table('client_type')->find($decrypt_id);
-
-
-    //     return view('ClientType.clienttypepdf' , ['client_type'=>$client_type ]);
-
-    // }
+    
+    public function BlockUsers(){
+        dd("hii");
+    }
 }

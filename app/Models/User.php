@@ -42,15 +42,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function userPlants()
-    {
-        return $this->belongsToMany(UserPlant::class, 'user_plants', 'user_id', 'plant_id');
-    }
 
-    public function employeeInfo()
-    {
-        return $this->belongsTo(EmployeeInfo::class, 'user_primary_id');
-    }
 
     public function designation()
     {

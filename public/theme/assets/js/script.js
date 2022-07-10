@@ -1,7 +1,7 @@
 
 // date picker   
 
-// const { isSet } = require("lodash");
+
 
 
              $(document).ready( function() {
@@ -128,6 +128,23 @@ allrequiredfield.forEach((each) => {
 })
 
 $(document).ready(function () {
+
+    $('form input').keydown(function(e) {
+        if (e.keyCode == 13) {
+            e.preventDefault();
+            // console.log('1113457890');
+            var self = $(this), form = self.parents('form:eq(0)'), focusable, next;
+            focusable = form.find('input:not([readonly])').filter(':visible');
+            next = focusable.eq(focusable.index(this) + 1);
+            next.focus();
+            
+            return false;
+    
+        }
+    });
+
+   
+
 
     // Initialize select2
     $(".fstdropdown-select").select2();
@@ -292,19 +309,7 @@ document.onkeydown = function (e) {
 
 
 //enter key prevent defeult
-$('form input').keydown(function(e) {
-    if (e.keyCode == 13) {
-        e.preventDefault();
-        // console.log('1113457890');
-        var self = $(this), form = self.parents('form:eq(0)'), focusable, next;
-        focusable = form.find('input:not([readonly])').filter(':visible');
-        next = focusable.eq(focusable.index(this) + 1);
-        next.focus();
-        
-        return false;
 
-    }
-});
 
 //index page filtering on click of enter btn
 $('#user-search , #user-search input').keydown(function(e) {
@@ -868,196 +873,196 @@ var showInactive = "no";
 function hideProcessing() {
     $.unblockUI();
 }
-$(document).ready(function () {
-    $(":input[data-inputmask-mask]").inputmask();
-    $(":input[data-inputmask-alias]").inputmask();
-    $(":input[data-inputmask-regex]").inputmask("Regex");
+// $(document).ready(function () {
+//     $(":input[data-inputmask-mask]").inputmask();
+//     $(":input[data-inputmask-alias]").inputmask();
+//     $(":input[data-inputmask-regex]").inputmask("Regex");
 
-    $('.select2statusclient').select2({ width: '10%' });
-
-
-    $(":input[data-inputmask-mask]").inputmask();
-    $(":input[data-inputmask-alias]").inputmask();
-    $(":input[data-inputmask-regex]").inputmask("Regex");
-    $(".datepicker").keypress(function (event) { event.preventDefault(); });
-    $('.datepicker').datepicker({
-        clearBtn: true,
-        todayHighlight: true,
-        autoclose: true
-    });
-    /*              $("input").iCheck({
-                    checkboxClass : "icheckbox_square-blue",
-                    radioClass : "iradio_square-blue"
-                }); */
-    $('.datepicker').datepicker('update', new Date());
-    $(".datepicker").keypress(function (event) { event.preventDefault(); });
-    $("#saveChanges").click(function () {
-        $(".errorborder").removeClass('errorborder');
-        $("#validationError").text("");
-        var isError = false;
-        var rowCountTbl = $('#myTable tr').length;
-        if (isError == false) {
-
-            $(".checkDate").each(function () {
-                if ($(this).val() != "" && $(this).val() != null) {
-                    var date = $(this).val().split("/");
-                    var d = parseInt(date[0], 10),
-                        m = parseInt(date[1], 10),
-                        y = parseInt(date[2], 10);
-
-                    var timestamp = processDate($(this).val());
-
-                    if (isNaN(timestamp) == false) {
-
-                        var dateToCheck = new Date(y, m - 1, d);
-
-                        if (firstOfFinancialYear <= dateToCheck && lastOfFinancialYear >= dateToCheck && firstOfFinancialYear2 <= dateToCheck && lastOfFinancialYear2 >= dateToCheck) {
-
-                        }
-                        else {
-                            $(this).focus();
-                            $(this).addClass('errorborder');
-                            $("#validationError").text("Check Date , This date input not allowed !!");
-                            isError = true;
-                            hideProcessing();
-
-                            return false;
-                        }
-
-                    }
-                    else {
-                        $(this).focus();
-                        $(this).addClass('errorborder');
-                        $("#validationError").text("Check Date input !");
-                        isError = true;
-                        hideProcessing();
-
-                        return false;
-                    }
+//     $('.select2statusclient').select2({ width: '10%' });
 
 
+//     $(":input[data-inputmask-mask]").inputmask();
+//     $(":input[data-inputmask-alias]").inputmask();
+//     $(":input[data-inputmask-regex]").inputmask("Regex");
+//     $(".datepicker").keypress(function (event) { event.preventDefault(); });
+//     $('.datepicker').datepicker({
+//         clearBtn: true,
+//         todayHighlight: true,
+//         autoclose: true
+//     });
+//     /*              $("input").iCheck({
+//                     checkboxClass : "icheckbox_square-blue",
+//                     radioClass : "iradio_square-blue"
+//                 }); */
+//     $('.datepicker').datepicker('update', new Date());
+//     $(".datepicker").keypress(function (event) { event.preventDefault(); });
+//     $("#saveChanges").click(function () {
+//         $(".errorborder").removeClass('errorborder');
+//         $("#validationError").text("");
+//         var isError = false;
+//         var rowCountTbl = $('#myTable tr').length;
+//         if (isError == false) {
 
-                }
-                else {
-                    $(this).focus();
-                    $(this).addClass('errorborder');
-                    $("#validationError").text("Check Date input !");
-                    isError = true;
-                    hideProcessing();
+//             $(".checkDate").each(function () {
+//                 if ($(this).val() != "" && $(this).val() != null) {
+//                     var date = $(this).val().split("/");
+//                     var d = parseInt(date[0], 10),
+//                         m = parseInt(date[1], 10),
+//                         y = parseInt(date[2], 10);
 
-                    return false;
-                }
+//                     var timestamp = processDate($(this).val());
 
-            });
+//                     if (isNaN(timestamp) == false) {
 
+//                         var dateToCheck = new Date(y, m - 1, d);
 
-        }
+//                         if (firstOfFinancialYear <= dateToCheck && lastOfFinancialYear >= dateToCheck && firstOfFinancialYear2 <= dateToCheck && lastOfFinancialYear2 >= dateToCheck) {
 
+//                         }
+//                         else {
+//                             $(this).focus();
+//                             $(this).addClass('errorborder');
+//                             $("#validationError").text("Check Date , This date input not allowed !!");
+//                             isError = true;
+//                             hideProcessing();
 
-        //Check No Validation
-        if (isError == false) {
-            $('.cno').each(function (i, obj) {
-                if ($(obj).val() != "" && $(obj).val().length < 6) {
-                    $(obj).focus();
-                    $(obj).addClass('errorborder');
-                    $("#validationError").text("Cheque number should be 6 digit number");
-                    isError = true;
-                    hideProcessing();
-                    return false;
-                }
-            });
-        }
-        if (isError == false) {
-            //Date Validation
-            $('.select2statusclient').each(function (i, obj) {
+//                             return false;
+//                         }
 
-                if ($(obj).val() == null) {
-                    $(obj).focus();
-                    $(obj).addClass('errorborder');
-                    $("#validationError").text("Select Client To Proceed");
-                    isError = true;
-                    hideProcessing();
-                    return false;
-                }
-            });
-        }
-        if (isError == false) {
-            //Date Validation
-            $('.datei').each(function (i, obj) {
-                if ($(obj).val().trim() == "" || $(obj).val().match(/[a-z]/i)) {
-                    $(obj).focus();
-                    $(obj).addClass('errorborder');
-                    $("#validationError").text("Date can't be empty or Date is Invalid ");
-                    isError = true;
-                    hideProcessing();
-                    return false;
-                }
-            });
-        }
-        if (isError == false) {
-            //Amount Validation
-            $('.amounti').each(function (i, obj) {
-                if ($(obj).val().trim() == "") {
-                    $(obj).focus();
-                    $(obj).addClass('errorborder');
-                    $("#validationError").text("Please enter the amount");
-                    isError = true;
-                    hideProcessing();
-                    return false;
-                }
-                else if ($(obj).val().trim().startsWith("0") || $(obj).val().trim().startsWith("0.")) {
-                    $(obj).focus();
-                    $(obj).addClass('errorborder');
-                    $("#validationError").text("Please enter the valid amount");
-                    isError = true;
-                    hideProcessing();
-                    return false;
-                }
-            });
-        }
-        if (isError == false) {
-            //if no row in table
-            if (rowCountTbl < 4) {
-                $("#validationError").text("Please add records before save changes");
-                isError = true;
-                hideProcessing();
-                return false;
-            }
-        }
+//                     }
+//                     else {
+//                         $(this).focus();
+//                         $(this).addClass('errorborder');
+//                         $("#validationError").text("Check Date input !");
+//                         isError = true;
+//                         hideProcessing();
+
+//                         return false;
+//                     }
 
 
-        if (isError == false) {
-            $("#bulkPaymentCheque").submit();
-        }
-        else {
-            return false;
-        }
-    });
+
+//                 }
+//                 else {
+//                     $(this).focus();
+//                     $(this).addClass('errorborder');
+//                     $("#validationError").text("Check Date input !");
+//                     isError = true;
+//                     hideProcessing();
+
+//                     return false;
+//                 }
+
+//             });
 
 
-    $("#addrow").on("click", function () {
-        for (i = 0; i < 5; i++) {
-            addRows();
-        }
-        postAddAction();
-    });
+//         }
 
 
-    $("#removerow").click(function () {
-        $('#myTable>tbody tr:last').remove();
-        counter--;
-        totalRowAvl--;
-        $(".totalRecords").text(totalRowAvl);
-        var tAmnt = 0;
-        $('.amounti').each(function (i, obj) {
-            if ($(obj).val().trim() != "" && !isNaN($(obj).val().trim())) {
-                tAmnt += parseInt($(obj).val().trim(), 10);
-            }
-        });
-        $(".totalAmount").text(tAmnt);
-    });
+//         //Check No Validation
+//         if (isError == false) {
+//             $('.cno').each(function (i, obj) {
+//                 if ($(obj).val() != "" && $(obj).val().length < 6) {
+//                     $(obj).focus();
+//                     $(obj).addClass('errorborder');
+//                     $("#validationError").text("Cheque number should be 6 digit number");
+//                     isError = true;
+//                     hideProcessing();
+//                     return false;
+//                 }
+//             });
+//         }
+//         if (isError == false) {
+//             //Date Validation
+//             $('.select2statusclient').each(function (i, obj) {
 
-});
+//                 if ($(obj).val() == null) {
+//                     $(obj).focus();
+//                     $(obj).addClass('errorborder');
+//                     $("#validationError").text("Select Client To Proceed");
+//                     isError = true;
+//                     hideProcessing();
+//                     return false;
+//                 }
+//             });
+//         }
+//         if (isError == false) {
+//             //Date Validation
+//             $('.datei').each(function (i, obj) {
+//                 if ($(obj).val().trim() == "" || $(obj).val().match(/[a-z]/i)) {
+//                     $(obj).focus();
+//                     $(obj).addClass('errorborder');
+//                     $("#validationError").text("Date can't be empty or Date is Invalid ");
+//                     isError = true;
+//                     hideProcessing();
+//                     return false;
+//                 }
+//             });
+//         }
+//         if (isError == false) {
+//             //Amount Validation
+//             $('.amounti').each(function (i, obj) {
+//                 if ($(obj).val().trim() == "") {
+//                     $(obj).focus();
+//                     $(obj).addClass('errorborder');
+//                     $("#validationError").text("Please enter the amount");
+//                     isError = true;
+//                     hideProcessing();
+//                     return false;
+//                 }
+//                 else if ($(obj).val().trim().startsWith("0") || $(obj).val().trim().startsWith("0.")) {
+//                     $(obj).focus();
+//                     $(obj).addClass('errorborder');
+//                     $("#validationError").text("Please enter the valid amount");
+//                     isError = true;
+//                     hideProcessing();
+//                     return false;
+//                 }
+//             });
+//         }
+//         if (isError == false) {
+//             //if no row in table
+//             if (rowCountTbl < 4) {
+//                 $("#validationError").text("Please add records before save changes");
+//                 isError = true;
+//                 hideProcessing();
+//                 return false;
+//             }
+//         }
+
+
+//         if (isError == false) {
+//             $("#bulkPaymentCheque").submit();
+//         }
+//         else {
+//             return false;
+//         }
+//     });
+
+
+//     $("#addrow").on("click", function () {
+//         for (i = 0; i < 5; i++) {
+//             addRows();
+//         }
+//         postAddAction();
+//     });
+
+
+//     $("#removerow").click(function () {
+//         $('#myTable>tbody tr:last').remove();
+//         counter--;
+//         totalRowAvl--;
+//         $(".totalRecords").text(totalRowAvl);
+//         var tAmnt = 0;
+//         $('.amounti').each(function (i, obj) {
+//             if ($(obj).val().trim() != "" && !isNaN($(obj).val().trim())) {
+//                 tAmnt += parseInt($(obj).val().trim(), 10);
+//             }
+//         });
+//         $(".totalAmount").text(tAmnt);
+//     });
+
+// });
 
 function defaultRows() {
     for (i = 0; i < 5; i++) {
@@ -1088,29 +1093,29 @@ function onChangeActionRegistration(counter) {
         $('[name="paymentCheques[' + counter + '].security"]').prop("checked", false);
     }
 }
-function addRows() {
-    var newRow = $("<tr>");
-    var cols = "";
+// function addRows() {
+//     var newRow = $("<tr>");
+//     var cols = "";
 
-    cols += '<td><strong>' + (counter + 1) + '</strong></td>';
-    cols += '<td  ><select style="width: 10%" class="select2statusclient select2-container select2-selection--single select2-selection__rendered "  name="paymentCheques[' + counter + '].client"></select></td>';
-    cols += '<td style="text-align: center;"><div class="icheck2 skin row"><input class="form-check-input" type="checkbox" onchange=onChangeActionSecurity(' + counter + ') name="paymentCheques[' + counter + '].security" /><label>Security ?</label></div><div class="icheck2 skin"><input class="form-check-input" onchange=onChangeActionRegistration(' + counter + ') type="checkbox" name="paymentCheques[' + counter + '].registration" /><label>Registration ?</label></div></td>';
-    cols += '<td><input placeholder="Cheque No" type="text" class="cno form-control numericonly" maxlength="6" name="paymentCheques[' + counter + '].chequeNo"/></td>';
-    cols += '<td><input placeholder="Date" data-inputmask-alias="dd/mm/yyyy"' + 'data-inputmask="\'yearrange\': { \'minyear\': \'2019\', \'maxyear\': \'2021\' }"' + '" data-val="true" data-val-required="Required" placeholder="mm/dd/yyyy" value="" type="text" data-date-format="dd/mm/yyyy" class="datei  form-control" name="paymentCheques[' + counter + '].date"/></td>';
-    cols += '<td><select class="select2status" name="paymentCheques[' + counter + '].bank"/></td>';
-    cols += '<td><input placeholder="Amount" type="text" maxlength="10" class="amounti form-control currencyonly" name="paymentCheques[' + counter + '].amount"/></td>';
-    cols += '<td><input placeholder="Bill No.s" type="text" maxlength="20" class="form-control alphanumeric" name="paymentCheques[' + counter + '].billNos"/></td>';
-    cols += '<td><input placeholder="Transaction Id" type="text" maxlength="20" class="form-control alphanumeric" name="paymentCheques[' + counter + '].transactionId"/></td>';
+//     cols += '<td><strong>' + (counter + 1) + '</strong></td>';
+//     cols += '<td  ><select style="width: 10%" class="select2statusclient select2-container select2-selection--single select2-selection__rendered "  name="paymentCheques[' + counter + '].client"></select></td>';
+//     cols += '<td style="text-align: center;"><div class="icheck2 skin row"><input class="form-check-input" type="checkbox" onchange=onChangeActionSecurity(' + counter + ') name="paymentCheques[' + counter + '].security" /><label>Security ?</label></div><div class="icheck2 skin"><input class="form-check-input" onchange=onChangeActionRegistration(' + counter + ') type="checkbox" name="paymentCheques[' + counter + '].registration" /><label>Registration ?</label></div></td>';
+//     cols += '<td><input placeholder="Cheque No" type="text" class="cno form-control numericonly" maxlength="6" name="paymentCheques[' + counter + '].chequeNo"/></td>';
+//     cols += '<td><input placeholder="Date" data-inputmask-alias="dd/mm/yyyy"' + 'data-inputmask="\'yearrange\': { \'minyear\': \'2019\', \'maxyear\': \'2021\' }"' + '" data-val="true" data-val-required="Required" placeholder="mm/dd/yyyy" value="" type="text" data-date-format="dd/mm/yyyy" class="datei  form-control" name="paymentCheques[' + counter + '].date"/></td>';
+//     cols += '<td><select class="select2status" name="paymentCheques[' + counter + '].bank"/></td>';
+//     cols += '<td><input placeholder="Amount" type="text" maxlength="10" class="amounti form-control currencyonly" name="paymentCheques[' + counter + '].amount"/></td>';
+//     cols += '<td><input placeholder="Bill No.s" type="text" maxlength="20" class="form-control alphanumeric" name="paymentCheques[' + counter + '].billNos"/></td>';
+//     cols += '<td><input placeholder="Transaction Id" type="text" maxlength="20" class="form-control alphanumeric" name="paymentCheques[' + counter + '].transactionId"/></td>';
 
-    newRow.append(cols);
-    $("table.order-list").append(newRow);
-    counter++;
-    totalRowAvl++;
-    $(".totalRecords").text(totalRowAvl);
+//     newRow.append(cols);
+//     $("table.order-list").append(newRow);
+//     counter++;
+//     totalRowAvl++;
+//     $(".totalRecords").text(totalRowAvl);
 
 
-    $(".form-control:first").focus();
-}
+//     $(".form-control:first").focus();
+// }
 
 var bank = '{"ALB":"Allahabad Bank","AUGB":"Allahabad Up Gramin Bank","ANB":"Andhra Bank","AUSFB":"Au Small Financial Bank","AXIS":"Axis Bank","BAND.B":"Bandhan Bank","BOB":"Bank of Baroda","BOI":"Bank of India","BOM":"Bank of Maharashtra","BMB":"Bombay  Mercantil Bank","CAN.B.":"Canara Bank","CBC":"Central Bank Of Commerce","CBI":"Central Bank of India","CITI":"Citi Bank","CCBL":"Citizen Coop Bank Ltd","COOP":"Co-operative Bank","CORP.B":"Corporation Bank","DBGB":"Dakshin Bihar Gramin Bank","DENA B":"Dena Bank","DCOB":"District Cooperative Bank","FED.B.":"Federal Bank","GBA":"Gramin Bank Of Aryavant","HGB":"Haryana Gramin Bank","HDFC":"Hdfc Bank","IDFC":"I D F C Bank","ICICI":"Icici Bank","IDBIB":"IDBI Bank","IND.B":"Indian Bank","IOB":"Indian Overseas Bank","INDUSL":"Induslnd Bank ","J\u0026K":"Jammu \u0026 Kashmir Bank","JSFB":"Jana Small Finance Bank","KRBANK":"Karnatka Bank","KVB":"Karur Vaisaya Bank","KMB":"Kotak Mahindra Bank","MBGB":"Madhya Bihar Gramin Bank","MSUCOB":"Mansarovar Urban Cooperative Bank","MDCB":"Md Cooperative Bank","NNB":"Nainital Bank","NDACOB":"Noida Commercial Cooperative Ltd Bank","OBC":"Oriental Bank of Commerce","OTH":"Others","PSB":"Punjab and Sind Bank","PNB":"Punjab National Bank","RBL":"Ratnakar Bank Limited","SHGB":"Sarva Haryana Gramin Bank","SUPB":"Sarva Up Bank","SSFM":"Shivalik Small Finance Bank","SMCOB":"Shree Mahaveer Co-operative Bank","SFB":"Small Finance Bank","SOIB":"South Indian Bank","STACHA":"Standard Chartered","SBI":"State Bank of India","SYB":"Syndicate Bank","TMB":"Tamilnad Mercantile Bank Ltd.","TEST":"Test2","TBUCB":"The Bijnor Urban Company-cooperative Bank Ltd","GMUCB":"The Ganga Mercantile Urban Cooperative Bank Ltd","TNBL":"The Nainital Bank Ltd","UCO":"UCO Bank","UBI":"Union Bank of India","UNI":"United Bank of India","UCOL":"Urban Cooperative Ltd","USFB":"Utkarsh Small Finance Bank","VB":"Vijaya Bank","YESBAN":"Yes Bank ","ZILASA":"Zila Sahkari Bank"}';
 var bankObj = jQuery.parseJSON(bank);
