@@ -43,6 +43,10 @@ Route::group(['middleware' => ['auth', 'module_assign']], function () {
     Route::post('DesignationStore', 'DesingnationRouteMasterController@store');
     Route::resource('master_routes_url', "master_routes_urlController");
     Route::get('BlockUsers' , 'UserController@BlockUsers');
+    Route::get('Notifications/create', 'NotificationController@create');
+    Route::post('Notifications/store', 'NotificationController@store');
+    Route::get('notifications/{type}', 'NotificationController@notificationManager');
+    // dummy route
     Route::get('nothing' , 'UserController@BlockUsers');
 
 });

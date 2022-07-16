@@ -210,9 +210,8 @@ class NotificationController extends Controller
         // $notifications_count= DB::table('notifications')->where('user_id' , $user_id)->where('date' , $today)->where('is_seen' , 0)->count();
         // dd($notifications_count);
         $users =DB::table('users')
-        ->join('employee_info' , 'employee_info.user_primary_id' , '=' , 'users.id')
-        ->leftjoin('designation' , 'employee_info.designation_id' , '=' , 'designation.id')
-        ->select(DB::raw("CONCAT_WS(' ',designation.name,users.name,employee_info.f_name,employee_info.l_name) as full_name"), 'users.*')
+        ->leftjoin('designation' , 'users.designation_id' , '=' , 'designation.id')
+        ->select(DB::raw("CONCAT_WS(' ',designation.name,users.name) as full_name"), 'users.*')
         ->get();
         // dd($UserData);
 
